@@ -6,7 +6,7 @@ There are still many gaps between design and development, and MSD UI provides so
 
 ## Reseources
 
-- [Storybook]()
+- [Storybook](https://main--68beda840fc6b18bc9ea89be.chromatic.com)
 
 ## Setup
 
