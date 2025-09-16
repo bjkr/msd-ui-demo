@@ -1,0 +1,2 @@
+import figma from "@figma/code-connect";
+import {IconAdd, IconCart, IconCheck, IconChevronDown, IconChevronLeft, IconChevronRight, IconChevronUp, IconComplaint, IconDocument, IconGroup, IconHeart, IconHome, IconInfo, IconMessages, IconPoints, IconRecycle, IconRefurbished, IconSupport, IconTradeIn} from "icons";

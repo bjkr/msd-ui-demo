@@ -1,0 +1,116 @@
+import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks'
+import * as icons from '../ui/icons'
+import { background } from 'storybook/internal/theming'
+
+<Meta title="Design System/Iconography" />
+
+# Iconography
+
+Our comprehensive icon library provides consistent, scalable icons throughout the application. All icons are automatically documented and searchable.
+
+## Available Icons ({Object.keys(icons).length} total)
+
+<IconGallery style={{
+  margin: '1rem 0',
+  padding: '.5rem 1rem',
+  background: '#FAFAFA',
+}}>
+  {Object.entries(icons).map(([iconName, IconComponent]) => {
+    // Safety check to ensure IconComponent exists and is a valid React component
+    if (!IconComponent || typeof IconComponent !== 'function') {
+      return null
+    }
+
+    return (
+      <IconItem key={iconName} name={iconName}>
+        <IconComponent size="24" />
+      </IconItem>
+    )
+
+})}
+
+</IconGallery>
+
+## Usage
+
+All icons are exported from the `icons` module and accept the following props:
+
+- `size`: `string` - Controls icon size (default: "24")
+- `className`: `string` - Additional CSS classes
+- `style`: `React.CSSProperties` - Inline styles
+
+### Example Usage
+
+```tsx
+import { IconHome, IconCart, IconHeart } from 'icons'
+
+// Basic usage
+<IconHome />
+
+// With size
+<IconCart size="32" />
+
+// With custom styling
+<IconHeart size="40" className="text-red-500" />
+```
+
+### Available Sizes
+
+export const SizeDemo = () => {
+  // Use the first available icon as an example
+  const iconEntries = Object.entries(icons)
+  const ExampleIcon = iconEntries.length > 0 ? iconEntries[0][1] : null
+  const iconName = iconEntries.length > 0 ? iconEntries[0][0] : 'No icons found'
+
+if (!ExampleIcon) {
+return (
+
+<div
+  style={{
+    padding: '1rem',
+    border: '1px solid #e5e7eb',
+    borderRadius: '8px',
+    textAlign: 'center',
+    color: '#6b7280',
+  }}
+>
+  No icons available for size demonstration
+</div>
+) }
+
+return (
+
+<div
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '2rem',
+    padding: '1rem',
+    border: '1px solid #e5e7eb',
+    borderRadius: '8px',
+    margin: '1rem 0',
+  }}
+>
+  {['16', '20', '24', '32', '40', '48'].map((size) => (
+    <div key={size} style={{ textAlign: 'center' }}>
+      <ExampleIcon size={size} />
+      <div
+        style={{
+          fontSize: '12px',
+          marginTop: '8px',
+          color: '#6b7280',
+          fontFamily: 'monospace',
+        }}
+      >
+        size="{size}"
+      </div>
+    </div>
+  ))}
+</div>
+) }
+
+<SizeDemo />
+
+---
+
+_This documentation is automatically generated and will update whenever new icons are added to the system._
