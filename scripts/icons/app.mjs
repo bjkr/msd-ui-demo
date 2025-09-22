@@ -44,6 +44,7 @@ async function go() {
     log.step('Fetching icon data from Figma API...')
     // Get icon data from Figma
     const data = await getIconComponents()
+    log.debug('data: ', data)
     const names = data.map((a) => a[0]).sort()
     log.success(`Found ${names.length} icons to process`)
 
@@ -118,7 +119,7 @@ go().catch((error) => {
   log.error('Script failed:', error.message)
   if (error.stack) {
     log.debug('Stack trace:')
-    console.log(colors.gray + error.stack + colors.reset)
+    // console.log(colors.gray + error.stack + colors.reset)
   }
   process.exit(1)
 })
