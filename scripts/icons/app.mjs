@@ -341,7 +341,7 @@ async function fileRESTResponseToIconComponentsJSON(response) {
     svgString.push(');')
     // Code Connect doc code
     figmaString.push(
-      `figma.connect(${name}, "<FIGMA_ICONS_BASE>?node-id=${componentSetId}", { props: { size: figma.enum("Size", { "20": "20", "24": "24", "32": "32", "40": "40", "48": "48" }) }, example: ({ size }) => <${name} size={size} /> });`
+      `figma.connect(${name}, "<FIGMA_ICONS_BASE>?node-id=${componentSetId}", { props: { size: figma.enum("size", { "20": "20", "24": "24", "32": "32", "40": "40", "48": "48" }) }, example: ({ size }) => <${name} size={size} /> });`
     )
     // Add the strings for this component into our result.
     result.push([name, svgString.join('\n'), figmaString.join('\n')])
